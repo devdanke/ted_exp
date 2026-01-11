@@ -1,0 +1,50 @@
+
+i want you to generate test data for a database lesson i'm creating.
+
+
+here's the table i want to test data in.
+
+CREATE TABLE sales (
+    date           DATE,           
+    supplier       VARCHAR(20),
+    licensee       VARCHAR(20),
+    po             VARCHAR(20),
+    part_id        VARCHAR(20),
+    qty            INTEGER,
+    amt            INTEGER,
+    CONSTRAINT fk_sales_on_parts FOREIGN KEY (part_id) REFERENCES parts(part_id)
+);
+
+my example is a roofing design company that contracts with two suppliers to make roofing parts. then licensee buy these parts from the suppliers.
+
+suppliers are nippon-metal and us-steel.
+
+nippon-metal sells to licensees ninja-roofing, rice-roofers, global-roof
+
+us-steel sells to licensees zztop-roof, ranger-roofing, global-roof
+
+licensee submit purchase orders that list part_ids, quantity, amount.
+
+this csv data shows what parts suppliers sell
+
+"PART_ID","PROD","PART_TYPE","SQFT"
+"tin-clip","tin-roof",,"10"
+"tin-decoration","tin-roof",,
+"gold-clip","golf-roof",,"50"
+"gold-decoration","golf-roof",,
+"glass-clip","glass-roof","new","100"
+"glass-decoration","glass-roof","new",
+"roof-polish",,,
+
+
+
+each licensee buys every part_id from their supplier(s) 10 of 12 months per year.
+
+for purchase orders use template "POnnnn"
+
+generate test data for the  period  march 2023 to jan 2026.
+
+
+
+
+
