@@ -1,4 +1,4 @@
-month,SUPPLIER,LICENSEE,PART_ID,qty,month_amt,ytd_amt
+month,SUPPLIER,LICENSEE,PART,qty,month_amt,ytd_amt
 2023-03,nippon-metal,ninja-roofing,glass-clip,109,128600,128600
 2023-03,nippon-metal,ninja-roofing,glass-decoration,114,86100,86100
 2023-03,nippon-metal,ninja-roofing,gold-clip,156,89500,89500
