@@ -4,20 +4,41 @@ import os
 
 ################################################################
 
-def env(key=None):
-  if(key==None):
-    return dict(sorted(os.environ.items()))
-  else:
-    return os.environ[key]  # raises KeyError if not set
 
 
 ################################################################
+# left justify text cols
+# convert specified col to int64
 
-def ping():
-  print("pong: juptils works! 😎")
+def pretty(self, int_col=None, n=10):
 
-  
+    df1 = self.copy() # default deep=True
+
+
+    # fix int cols that turn into fugly floats
+    if int_col is not None:
+        df1[int_col] = df1[int_col].astype('int64')
+    
+    if len(df1) <= n:
+        df2 = df1
+    else:
+        head = df1.head(n)
+        tail = df1.tail(n)
+      
+        ellipsis_row = pd.DataFrame([['...'] * len(df1.columns)], columns=df1.columns)
+      
+        df2 = pd.concat([head, ellipsis_row, tail], ignore_index=True)
+
+    text_cols = df1.select_dtypes(include='object').columns
+    
+    if len(text_cols) > 0:
+        return df2.style.set_properties(**{'text-align': 'left'}, subset=text_cols).hide(axis="index")
+    else:
+        return df2
+
+
 ################################################################
+# left justify text cols
 
 def lefty(self, n=10):
     
@@ -32,30 +53,21 @@ def lefty(self, n=10):
     text_cols = self.select_dtypes(include='object').columns
     
     if len(text_cols) > 0:
-        return df2.style.set_properties(**{'text-align': 'left'}, subset=text_cols)
+        return df2.style.set_properties(**{'text-align': 'left'}, subset=text_cols).hide(axis="index")
     else:
         return df2
 
 
 ################################################################
 
-def show_all(self):
-    with pd.option_context('display.max_rows', len(self)):
-        display(self)
-
-
-################################################################
-
-def save_csv(self, fpath):
-    self.to_csv(fpath, index=False)
-
-
-################################################################
-
 
 pd.DataFrame.lefty = lefty
-pd.DataFrame.show_all = show_all
-pd.DataFrame.save_csv = save_csv
+pd.DataFrame.pretty = pretty
 
+
+
+
+
+# left justify text cols
 
 
