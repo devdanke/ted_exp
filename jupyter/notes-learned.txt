@@ -1,0 +1,12 @@
+
+
+# NOTE: '{:t,}'  works, but '{:t}' doesn't work. for floats: '{:t,.2f}'
+
+- for markdown in jupyter, adding blank lines.
+  - only "\" first char of line works, but only on 1st line of cell.
+  - \ never works on any other line, with or without trailing spaces.
+  - &nbsp; never works
+  - any html tag of first line disables markup mode. makes cell text mode.
+  - for any line after first <br /> works
+  - <br> never works for any line. 
+

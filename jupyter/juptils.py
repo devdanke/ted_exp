@@ -1,8 +1,33 @@
 import pandas as pd
 import os
+from IPython.display import display
 
 
 ################################################################
+# Justify
+# remove index
+# then display
+# TODO probably don't need left param, because its the default.
+def show_pretty(self, left=None, right=None):
+  
+    if left is None:
+        left = []
+    if right is None:
+        right = []
+      
+    styler = (
+        self.style
+        .hide(axis="index")
+        .set_properties(subset=left, **{'text-align': 'left'})
+        .set_properties(subset=right, **{'text-align': 'right'})
+    )
+  
+    display(styler)
+
+
+pd.DataFrame.show_pretty = show_pretty
+
+
 
 
 
@@ -35,6 +60,7 @@ def pretty(self, int_col=None, n=10):
         return df2.style.set_properties(**{'text-align': 'left'}, subset=text_cols).hide(axis="index")
     else:
         return df2
+
 
 
 ################################################################
