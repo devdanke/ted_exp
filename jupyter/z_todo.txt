@@ -1,0 +1,22 @@
+_now_
+
+- colab prep
+  - move non-essential files out of main demo_dir
+  - rename nb to crunch-sales-data
+  - rename csv to sales-month-ytd-generated.csv
+  - read from it
+  - login to and upload to devdanke@gmail
+
+
+~~~
+
+- do more queries
+  - yrly tot by licensee
+  - yrly total by prod
+  - monthly roof sqft
+
+
+- do a real test of monthly,ytd,yr totals
+
+
+
